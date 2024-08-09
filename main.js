@@ -13,6 +13,9 @@ const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const repeatBtn = $('.btn-repeat')
 
+// tinh thoi gian bai hat:
+//console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
+
 var app = {
     currentIndex: 0,
     isPlaying: false,
@@ -43,10 +46,10 @@ var app = {
             audio: './assets/music/utomp3.com - starlog.mp3'
         },
         {
-            name: 'Die For You',
-            singer: 'VALORANT',
-            image: './assets/img/maxresdefault.jpg',
-            audio: './assets/music/music3.mp3'
+            name: 'Darling In The Night',
+            singer: 'The Eminence in the shadow',
+            image: './assets/img/1669789143299_640.jpg',
+            audio: './assets/music/utomp3.com - Darling in the Night.mp3'
         },
         {
             name: 'Die For You',
@@ -88,14 +91,18 @@ var app = {
         playBtn.onclick = function() {
             if(_this.isPlaying) {
                 audio.pause()
+                cdThumb.style.animationPlayState = 'paused'
             } else {
                 audio.play()
+                cdThumb.style.animation = 'spin 10s linear infinite'
+                cdThumb.style.animationPlayState = 'running'
             }
+            
         }
         //Khi bai hat duoc play
         audio.onplay = function() {
             _this.isPlaying = true
-            player.classList.add('playing')
+            player.classList.add('playing')            
         }
 
         //Khi bai hat dung
@@ -132,6 +139,7 @@ var app = {
             _this.currentIndex++
             _this.loadCurrentSong()
             audio.play()
+            cdThumb.style.animation = 'spin 10s linear infinite'
         }
 
         //Khi bam vao nut backward
@@ -141,6 +149,7 @@ var app = {
                 _this.currentIndex--
                 _this.loadCurrentSong()
                 audio.play()
+                cdThumb.style.animation = 'spin 10s linear infinite'
             }
         }
 
@@ -162,6 +171,11 @@ var app = {
                 }
             }
         }
+
+        //Quay hinh anh bai hat khi dang phat nhac
+        
+            
+
     },
 
     defineProperties() {
@@ -191,7 +205,7 @@ var app = {
 
         //Hien thi playlist
         this.renderMusic()
-        audio.volume = 0.05
+        audio.volume = 0.25
     }
 }
 

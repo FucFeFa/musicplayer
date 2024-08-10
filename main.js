@@ -212,6 +212,11 @@ var app = {
                 _this.loadCurrentSong()
                 audio.play()
                 cdThumb.style.animation = 'spin 10s linear infinite'
+            } else {
+                _this.currentIndex = _this.song.length - 1
+                _this.loadCurrentSong()
+                audio.play()
+                cdThumb.style.animation = 'spin 10s linear infinite'
             }
         }
 

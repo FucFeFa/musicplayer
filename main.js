@@ -197,9 +197,15 @@ var app = {
                 _this.isRepeat = false
                 repeatBtn.classList.remove('active')
                 audio.onended = function() {
-                    _this.currentIndex++
-                    _this.loadCurrentSong()
-                    audio.play()
+                    if(_this.currentIndex < _this.song.length - 1) {
+                        _this.currentIndex++
+                        _this.loadCurrentSong()
+                        audio.play()
+                    } else {
+                        _this.currentIndex = 0
+                        _this.loadCurrentSong()
+                        audio.play()
+                    }
                 }
             } else {
                 _this.isRepeat = true

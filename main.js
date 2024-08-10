@@ -13,6 +13,13 @@ const nextBtn = $('.btn-next')
 const prevBtn = $('.btn-prev')
 const repeatBtn = $('.btn-repeat')
 
+const theme = $('.theme-mode')
+const themeBtn = $('.theme-btn')
+
+const dashBoard = $('.dashboard')
+const titles = $$('.title')
+
+
 // tinh thoi gian bai hat:
 //console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
 
@@ -50,13 +57,7 @@ var app = {
             singer: 'The Eminence in the shadow',
             image: './assets/img/1669789143299_640.jpg',
             audio: './assets/music/utomp3.com - Darling in the Night.mp3'
-        },
-        {
-            name: 'Die For You',
-            singer: 'VALORANT',
-            image: './assets/img/maxresdefault.jpg',
-            audio: './assets/music/music3.mp3'
-        },
+        }
     ],
     
     renderMusic() {   
@@ -128,18 +129,31 @@ var app = {
 
         //Khi het bai hat thi chuyen sang bai tiep theo
         audio.onended = function() {
-            _this.currentIndex++
-            _this.loadCurrentSong()
-            audio.play()
+            if(_this.currentIndex < _this.song.length-1) {
+                _this.currentIndex++
+                _this.loadCurrentSong()
+                audio.play()
+            } else {
+                _this.currentIndex = 0
+                _this.loadCurrentSong()
+                audio.play()
+            }
         }
 
         //Khi bam vao nut next
         nextBtn.onclick = function() {
-            progress.value = 0
-            _this.currentIndex++
-            _this.loadCurrentSong()
-            audio.play()
-            cdThumb.style.animation = 'spin 10s linear infinite'
+            if(_this.currentIndex < _this.song.length - 1) {
+                progress.value = 0
+                _this.currentIndex++
+                _this.loadCurrentSong()
+                audio.play()
+                cdThumb.style.animation = 'spin 10s linear infinite'
+            } else {
+                _this.currentIndex = 0
+                _this.loadCurrentSong()
+                audio.play()
+                cdThumb.style.animation = 'spin 10s linear infinite'
+            }
         }
 
         //Khi bam vao nut backward
@@ -172,7 +186,46 @@ var app = {
             }
         }
 
-        //Quay hinh anh bai hat khi dang phat nhac
+        //Thay doi theme khi bam vao nut
+        theme.onclick = function() {
+            if(themeBtn.classList.contains('light-btn')){
+                theme.classList.remove('light-theme')
+                themeBtn.classList.remove('light-btn')
+                theme.classList.add('dark-theme')
+                themeBtn.classList.add('dark-btn')
+
+                document.documentElement.style.setProperty('--text-color', 'white')
+                
+                $('html').style.backgroundColor = 'black'
+                $('body').style.backgroundColor = 'black'
+                $('h2').style.color = 'var(--text-color)'
+                dashBoard.style.backgroundColor = 'black'
+                dashBoard.style.border = '1px solid white'
+                $$('.song').forEach(function(song){
+                    song.style.backgroundColor = 'black'
+                    song.style.border = '1px solid white'
+                })
+                
+                
+            } else {
+                theme.classList.remove('dark-theme')
+                themeBtn.classList.remove('dark-btn')
+                theme.classList.add('light-theme')
+                themeBtn.classList.add('light-btn')
+
+                document.documentElement.style.setProperty('--text-color', '#333')
+                $('html').style.backgroundColor = ''
+                $('body').style.backgroundColor = '#f5f5f5'
+                $('h2').style.color = 'var(--text-color)'
+                dashBoard.style.backgroundColor = '#fff'
+                dashBoard.style.border = ''
+
+                $$('.song').forEach(function(song){
+                    song.style.backgroundColor = 'white'
+                    song.style.border = '1px solid white'
+                })
+            }
+        }
         
             
 
@@ -194,6 +247,9 @@ var app = {
 
     
     start() {
+        //Hien thi playlist
+        this.renderMusic()
+
         //Dinh nghia cac thuoc tinh cho object
         this.defineProperties()
 
@@ -203,9 +259,7 @@ var app = {
         //Tai thong tin bai hat hien tai
         this.loadCurrentSong()
 
-        //Hien thi playlist
-        this.renderMusic()
-        audio.volume = 0.25
+        audio.volume = 0.1
     }
 }
 

@@ -1,6 +1,7 @@
 :root {
     --primary-color: #ec1f55;
     --text-color: #333;
+    
   }
   
   * {
@@ -192,3 +193,55 @@
     font-size: 18px;
   }
   
+  .theme-mode {
+    width: 64px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 16px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+  }
+
+  .theme-btn {
+    position: absolute;
+    width: 40%;
+    height: 80%;    
+    border-radius: 50%;
+    margin: 3px 3px 0 3px;
+    
+  }
+
+  .light-theme {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .light-btn {
+    background-color: black;
+    animation: movelight 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+
+  .dark-theme {
+    background-color: black;
+    border: 1px solid white;
+  }
+
+  .dark-btn{
+    background-color: white;
+    animation: movedark 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes movedark {
+    from {right:31px;}
+    to {right: 0}
+  }
+
+  @keyframes movelight {
+    from {right: 0;}
+    to {right: 31px;}
+  }

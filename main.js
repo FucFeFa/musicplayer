@@ -88,6 +88,12 @@ var app = {
             image: './assets/img/1200x1200bf-60 (1).jpg',
             audio: './assets/music/y2mate.com - Sunny.mp3'
         },
+        {
+            name: 'TruE',
+            singer: 'HOYO-Mix',
+            image: './assets/img/artworks-IZ4sNASYOkpZMrro-b8yoXQ-t500x500.jpg',
+            audio: './assets/music/y2mate.com - TruE.mp3'
+        },
     ],
     
     renderMusic() {   

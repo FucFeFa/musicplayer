@@ -82,6 +82,12 @@ var app = {
             image: './assets/img/maxresdefault (1).jpg',
             audio: './assets/music/utomp3.com - Firefly Trailer OST Embers in a Shell HQ Cover  Honkai Star Rail.mp3'
         },
+        {
+            name: 'Sunny',
+            singer: 'Yorushika',
+            image: './assets/img/1200x1200bf-60 (1).jpg',
+            audio: './assets/music/y2mate.com - Sunny.mp3'
+        },
     ],
     
     renderMusic() {   

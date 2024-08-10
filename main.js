@@ -94,6 +94,12 @@ var app = {
             image: './assets/img/artworks-IZ4sNASYOkpZMrro-b8yoXQ-t500x500.jpg',
             audio: './assets/music/y2mate.com - TruE.mp3'
         },
+        {
+            name: 'If I Can Stop One Heart From Breaking',
+            singer: 'Robin',
+            image: './assets/img/INSIDE.webp',
+            audio: './assets/music/y2mate.com - If I Can Stop One Heart From Breaking.mp3'
+        },
     ],
     
     renderMusic() {   

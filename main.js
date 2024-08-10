@@ -318,7 +318,7 @@ var app = {
         //Tai thong tin bai hat hien tai
         this.loadCurrentSong()
 
-        audio.volume = 0.1
+        audio.volume = 0.05
     }
 }
 

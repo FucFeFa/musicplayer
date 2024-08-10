@@ -57,7 +57,31 @@ var app = {
             singer: 'The Eminence in the shadow',
             image: './assets/img/1669789143299_640.jpg',
             audio: './assets/music/utomp3.com - Darling in the Night.mp3'
-        }
+        },
+        {
+            name: '青春のアーカイブ',
+            singer: '花守ゆみり',
+            image: './assets/img/MV5BMzc1MTA0ZmQtMWU1OC00MDJhLTkxZjQtYjk5OWVhNTliNjJiXkEyXkFqcGdeQXVyMTM3NDc1OTM2._V1_.jpg',
+            audio: './assets/music/y2mate.com - 青春のアーカイフ.mp3'
+        },
+        {
+            name: 'Only for you',
+            singer: '千本木彩花',
+            image: './assets/img/0 (1).jpg',
+            audio: './assets/music/utomp3.com - Only for you.mp3'
+        },
+        {
+            name: 'Had I Not Seen the Sun',
+            singer: 'Robin',
+            image: './assets/img/1200x1200bf-60.jpg',
+            audio: './assets/music/y2mate.com - Had I Not Seen the Sun.mp3'
+        },
+        {
+            name: 'Embers in a Shell',
+            singer: 'HOYO-Mix',
+            image: './assets/img/maxresdefault (1).jpg',
+            audio: './assets/music/utomp3.com - Firefly Trailer OST Embers in a Shell HQ Cover  Honkai Star Rail.mp3'
+        },
     ],
     
     renderMusic() {   
@@ -196,8 +220,8 @@ var app = {
 
                 document.documentElement.style.setProperty('--text-color', 'white')
                 
-                $('html').style.backgroundColor = 'black'
-                $('body').style.backgroundColor = 'black'
+                $('html').style.backgroundColor = '#333'
+                $('body').style.backgroundColor = '#333'
                 $('h2').style.color = 'var(--text-color)'
                 dashBoard.style.backgroundColor = 'black'
                 dashBoard.style.border = '1px solid white'

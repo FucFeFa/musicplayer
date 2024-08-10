@@ -100,6 +100,12 @@ var app = {
             image: './assets/img/INSIDE.webp',
             audio: './assets/music/y2mate.com - If I Can Stop One Heart From Breaking.mp3'
         },
+        {
+            name: 'Ticking Away',
+            singer: 'Valorant',
+            image: './assets/img/ab67616d0000b2732dec0133eb6e5dd2ea17ebbb.jpeg',
+            audio: './assets/music/utomp3.com - Ticking Away ft Grabbitz  bbno Official Music Video  VALORANT Champions 2023 Anthem.mp3'
+        },
     ],
     
     renderMusic() {   

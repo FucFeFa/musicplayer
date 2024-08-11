@@ -19,6 +19,8 @@ const themeBtn = $('.theme-btn')
 const dashBoard = $('.dashboard')
 const titles = $$('.title')
 
+const randomBtn = $('.btn-random')
+
 
 // tinh thoi gian bai hat:
 //console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
@@ -27,6 +29,7 @@ var app = {
     currentIndex: 0,
     isPlaying: false,
     isRepeat: false,
+    isRandom: false,
     song: [
         {
             name: 'Glory days',
@@ -190,33 +193,53 @@ var app = {
 
         //Khi bam vao nut next
         nextBtn.onclick = function() {
-            if(_this.currentIndex < _this.song.length - 1) {
-                progress.value = 0
-                _this.currentIndex++
-                _this.loadCurrentSong()
-                audio.play()
-                cdThumb.style.animation = 'spin 10s linear infinite'
+            if(_this.isRandom) {
+                if(_this.currentIndex >= 0) {
+                    progress.value = 0
+                    _this.currentIndex = Math.floor(Math.random() * _this.song.length)
+                    _this.loadCurrentSong()
+                    audio.play()
+                    cdThumb.style.animation = 'spin 10s linear infinite'
+                }
             } else {
-                _this.currentIndex = 0
-                _this.loadCurrentSong()
-                audio.play()
-                cdThumb.style.animation = 'spin 10s linear infinite'
+                if(_this.currentIndex < _this.song.length - 1) {
+                    progress.value = 0
+                    _this.currentIndex++
+                    _this.loadCurrentSong()
+                    audio.play()
+                    cdThumb.style.animation = 'spin 10s linear infinite'
+                } else {
+                    _this.currentIndex = 0
+                    _this.loadCurrentSong()
+                    audio.play()
+                    cdThumb.style.animation = 'spin 10s linear infinite'
+                }
             }
         }
 
         //Khi bam vao nut backward
         prevBtn.onclick = function() {
-            if(_this.currentIndex > 0) {
-                progress.value = 0
-                _this.currentIndex--
-                _this.loadCurrentSong()
-                audio.play()
-                cdThumb.style.animation = 'spin 10s linear infinite'
-            } else {
-                _this.currentIndex = _this.song.length - 1
-                _this.loadCurrentSong()
-                audio.play()
-                cdThumb.style.animation = 'spin 10s linear infinite'
+            if(_this.isRandom) {
+                if(_this.currentIndex >= 0) {
+                    progress.value = 0
+                    _this.currentIndex = Math.floor(Math.random() * _this.song.length)
+                    _this.loadCurrentSong()
+                    audio.play()
+                    cdThumb.style.animation = 'spin 10s linear infinite'
+                }
+            }else {
+                if(_this.currentIndex > 0) {
+                    progress.value = 0
+                    _this.currentIndex--
+                    _this.loadCurrentSong()
+                    audio.play()
+                    cdThumb.style.animation = 'spin 10s linear infinite'
+                } else {
+                    _this.currentIndex = _this.song.length - 1
+                    _this.loadCurrentSong()
+                    audio.play()
+                    cdThumb.style.animation = 'spin 10s linear infinite'
+                }
             }
         }
 
@@ -237,9 +260,41 @@ var app = {
                     }
                 }
             } else {
+                _this.isRandom = false
+                randomBtn.classList.remove('active')
                 _this.isRepeat = true
                 repeatBtn.classList.add('active')
                 audio.onended = function() {
+                    audio.play()
+                }
+            }
+        }
+
+        //Khi bam vao nut random
+        randomBtn.onclick = function() {
+            if(_this.isRandom) {
+                _this.isRandom = false
+                randomBtn.classList.remove('active')
+                audio.onended = function() {
+                    if(_this.currentIndex < _this.song.length - 1) {
+                        _this.currentIndex++
+                        _this.loadCurrentSong()
+                        audio.play()
+                    } else {
+                        _this.currentIndex = 0
+                        _this.loadCurrentSong()
+                        audio.play()
+                    }
+                }
+            } else {
+                _this.isRepeat = false
+                repeatBtn.classList.remove('active')
+                _this.isRandom = true
+                randomBtn.classList.add('active')
+                audio.onended = function() {
+                    const randomIndex = Math.floor(Math.random() * _this.song.length)
+                    _this.currentIndex = randomIndex
+                    _this.loadCurrentSong()
                     audio.play()
                 }
             }

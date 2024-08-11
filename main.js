@@ -20,7 +20,6 @@ const dashBoard = $('.dashboard')
 const titles = $$('.title')
 
 const randomBtn = $('.btn-random')
-
 // tinh thoi gian bai hat:
 //console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
 
@@ -130,6 +129,7 @@ var app = {
     
     handleEvents() {
         const _this = this
+        const songs = $$('.song')
         //Xu ly phong to/thu nho cd
         document.onscroll = function(){
             const scroll = window.scrollY || document.documentElement.scrollTop
@@ -181,10 +181,18 @@ var app = {
         audio.onended = function() {
             if(_this.currentIndex < _this.song.length-1) {
                 _this.currentIndex++
+                songs[_this.currentIndex-1].classList.remove('highlight-song')
+                songs[_this.currentIndex-1].style.border = '1px solid white'
+                songs[_this.currentIndex].classList.add('highlight-song')
+                songs[_this.currentIndex].style.border = ''
                 _this.loadCurrentSong()
                 audio.play()
             } else {
                 _this.currentIndex = 0
+                songs[_this.song.length-1].classList.remove('highlight-song')
+                songs[_this.song.length-1].style.border = '1px solid white'
+                songs[_this.currentIndex].classList.add('highlight-song')
+                songs[_this.currentIndex].style.border = ''
                 _this.loadCurrentSong()
                 audio.play()
             }
@@ -196,6 +204,15 @@ var app = {
                 if(_this.currentIndex >= 0) {
                     progress.value = 0
                     _this.currentIndex = Math.floor(Math.random() * _this.song.length)
+                    
+                    //highlight bai hat
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
+                    
                     _this.loadCurrentSong()
                     audio.play()
                     cdThumb.style.animation = 'spin 15s linear infinite'
@@ -204,11 +221,28 @@ var app = {
                 if(_this.currentIndex < _this.song.length - 1) {
                     progress.value = 0
                     _this.currentIndex++
+                    //highlight bai hat
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
+
                     _this.loadCurrentSong()
                     audio.play()
                     cdThumb.style.animation = 'spin 15s linear infinite'
                 } else {
                     _this.currentIndex = 0
+
+                    //highlight bai hat
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
+
                     _this.loadCurrentSong()
                     audio.play()
                     cdThumb.style.animation = 'spin 15s linear infinite'
@@ -222,6 +256,15 @@ var app = {
                 if(_this.currentIndex >= 0) {
                     progress.value = 0
                     _this.currentIndex = Math.floor(Math.random() * _this.song.length)
+                     
+                    //highlight bai hat
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
+
                     _this.loadCurrentSong()
                     audio.play()
                     cdThumb.style.animation = 'spin 15s linear infinite'
@@ -230,11 +273,29 @@ var app = {
                 if(_this.currentIndex > 0) {
                     progress.value = 0
                     _this.currentIndex--
+
+                    //highlight bai hat
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
+
                     _this.loadCurrentSong()
                     audio.play()
                     cdThumb.style.animation = 'spin 15s linear infinite'
                 } else {
                     _this.currentIndex = _this.song.length - 1
+
+                    //highlight bai hat
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
+                    
                     _this.loadCurrentSong()
                     audio.play()
                     cdThumb.style.animation = 'spin 15s linear infinite'
@@ -287,12 +348,21 @@ var app = {
                 }
             } else {
                 _this.isRepeat = false
+
+                //bo highlight nut repeat
                 repeatBtn.classList.remove('active')
+                
                 _this.isRandom = true
                 randomBtn.classList.add('active')
                 audio.onended = function() {
                     const randomIndex = Math.floor(Math.random() * _this.song.length)
                     _this.currentIndex = randomIndex
+                    songs.forEach(function(song){
+                        song.classList.remove('highlight-song')
+                        song.style.border = '1px solid white'
+                    })
+                    songs[_this.currentIndex].style.border = ''
+                    songs[_this.currentIndex].classList.add('highlight-song')
                     _this.loadCurrentSong()
                     audio.play()
                 }
@@ -316,7 +386,9 @@ var app = {
                 dashBoard.style.border = '1px solid white'
                 $$('.song').forEach(function(song){
                     song.style.backgroundColor = 'black'
-                    song.style.border = '1px solid white'
+                    if(!song.classList.contains('highlight-song')){
+                        song.style.border = '1px solid white'
+                    }
                 })
                 
                 
@@ -334,16 +406,20 @@ var app = {
                 dashBoard.style.border = ''
 
                 $$('.song').forEach(function(song){
-                    song.style.backgroundColor = 'white'
-                    song.style.border = '1px solid white'
+                    song.style.backgroundColor = 'white'       
                 })
             }
         }
         
         // Khi bam vao bai hat
-        const songs = $$('.song')
         songs.forEach(function(song, index){
             song.onclick = function(){
+                songs.forEach(function(song){
+                    song.classList.remove('highlight-song')
+                    song.style.border = '1px solid white'
+                })
+                this.style.border = ''
+                this.classList.add('highlight-song') 
                 _this.currentIndex = index
                 _this.loadCurrentSong()
                 audio.play()
@@ -365,6 +441,7 @@ var app = {
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
         audio.src = this.currentSong.audio
+        $('.song').classList.add('highlight-song')
     },
 
     

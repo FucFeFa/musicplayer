@@ -240,8 +240,12 @@
     from {right:31px;}
     to {right: 0}
   }
-
+  
   @keyframes movelight {
     from {right: 0;}
     to {right: 31px;}
+  }
+  
+  .highlight-song{
+    border: 1px solid red;
   }

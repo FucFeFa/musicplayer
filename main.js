@@ -21,7 +21,6 @@ const titles = $$('.title')
 
 const randomBtn = $('.btn-random')
 
-
 // tinh thoi gian bai hat:
 //console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
 
@@ -341,6 +340,15 @@ var app = {
             }
         }
         
+        // Khi bam vao bai hat
+        const songs = $$('.song')
+        songs.forEach(function(song, index){
+            song.onclick = function(){
+                _this.currentIndex = index
+                _this.loadCurrentSong()
+                audio.play()
+            }
+        })
             
 
     },

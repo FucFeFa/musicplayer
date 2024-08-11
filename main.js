@@ -146,7 +146,7 @@ var app = {
                 cdThumb.style.animationPlayState = 'paused'
             } else {
                 audio.play()
-                cdThumb.style.animation = 'spin 10s linear infinite'
+                cdThumb.style.animation = 'spin 15s linear infinite'
                 cdThumb.style.animationPlayState = 'running'
             }
             
@@ -199,7 +199,7 @@ var app = {
                     _this.currentIndex = Math.floor(Math.random() * _this.song.length)
                     _this.loadCurrentSong()
                     audio.play()
-                    cdThumb.style.animation = 'spin 10s linear infinite'
+                    cdThumb.style.animation = 'spin 15s linear infinite'
                 }
             } else {
                 if(_this.currentIndex < _this.song.length - 1) {
@@ -207,12 +207,12 @@ var app = {
                     _this.currentIndex++
                     _this.loadCurrentSong()
                     audio.play()
-                    cdThumb.style.animation = 'spin 10s linear infinite'
+                    cdThumb.style.animation = 'spin 15s linear infinite'
                 } else {
                     _this.currentIndex = 0
                     _this.loadCurrentSong()
                     audio.play()
-                    cdThumb.style.animation = 'spin 10s linear infinite'
+                    cdThumb.style.animation = 'spin 15s linear infinite'
                 }
             }
         }
@@ -225,7 +225,7 @@ var app = {
                     _this.currentIndex = Math.floor(Math.random() * _this.song.length)
                     _this.loadCurrentSong()
                     audio.play()
-                    cdThumb.style.animation = 'spin 10s linear infinite'
+                    cdThumb.style.animation = 'spin 15s linear infinite'
                 }
             }else {
                 if(_this.currentIndex > 0) {
@@ -233,12 +233,12 @@ var app = {
                     _this.currentIndex--
                     _this.loadCurrentSong()
                     audio.play()
-                    cdThumb.style.animation = 'spin 10s linear infinite'
+                    cdThumb.style.animation = 'spin 15s linear infinite'
                 } else {
                     _this.currentIndex = _this.song.length - 1
                     _this.loadCurrentSong()
                     audio.play()
-                    cdThumb.style.animation = 'spin 10s linear infinite'
+                    cdThumb.style.animation = 'spin 15s linear infinite'
                 }
             }
         }

@@ -138,7 +138,7 @@ var app = {
             cd.style.width =newCdWidth > 0 ? newCdWidth + 'px' : 0
             cd.style.opacity = newCdWidth/cdWidth
 
-            //list song the dashboard
+            //resize playlist
             dashBoardHeight = dashBoard.clientHeight + scroll
             playlist.style.marginTop = dashBoard.clientHeight + 'px'
             playlist.style.paddingTop = '12px'

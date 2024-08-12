@@ -20,6 +20,7 @@ const dashBoard = $('.dashboard')
 const titles = $$('.title')
 
 const randomBtn = $('.btn-random')
+const playlist = $('.playlist')
 // tinh thoi gian bai hat:
 //console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
 
@@ -136,6 +137,18 @@ var app = {
             var newCdWidth = cdWidth - scroll
             cd.style.width =newCdWidth > 0 ? newCdWidth + 'px' : 0
             cd.style.opacity = newCdWidth/cdWidth
+
+            //list song the dashboard
+            dashBoardHeight = dashBoard.clientHeight + scroll
+            playlist.style.marginTop = dashBoard.clientHeight + 'px'
+            playlist.style.paddingTop = '12px'
+            // console.log(dashBoard.clientHeight)
+        }
+        //Khi an vao bat ki dau thi se resize lai playlist
+        document.onclick = function() {
+            dashBoardHeight = dashBoard.clientHeight
+            playlist.style.marginTop = dashBoard.clientHeight + 'px'
+            playlist.style.paddingTop = '12px'
         }
 
         //Xu ly khi bam vao nut play
@@ -442,7 +455,7 @@ var app = {
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
         audio.src = this.currentSong.audio
-        $('.song').classList.add('highlight-song')
+        $('.song').classList.add('highlight-song') 
     },
 
     

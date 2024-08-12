@@ -139,15 +139,15 @@ var app = {
             cd.style.opacity = newCdWidth/cdWidth
 
             //resize playlist
-            dashBoardHeight = dashBoard.clientHeight + scroll
-            playlist.style.marginTop = dashBoard.clientHeight + 'px'
+            const dashBoardHeight = dashBoard.clientHeight + scroll
+            playlist.style.marginTop = dashBoardHeight + 'px'
             playlist.style.paddingTop = '12px'
             // console.log(dashBoard.clientHeight)
         }
         //Khi an vao bat ki dau thi se resize lai playlist
         document.onclick = function() {
-            dashBoardHeight = dashBoard.clientHeight
-            playlist.style.marginTop = dashBoard.clientHeight + 'px'
+            const dashBoardHeight = dashBoard.clientHeight
+            playlist.style.marginTop = dashBoardHeight + 'px'
             playlist.style.paddingTop = '12px'
         }
 

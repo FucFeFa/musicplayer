@@ -146,15 +146,15 @@ var app = {
 
             //resize playlist
             var dashBoardHeight = dashBoard.clientHeight + 6
+            
             playlist.style.marginTop = dashBoardHeight + 'px'
-            playlist.style.padding = '12px'
-            console.log(dashBoardHeight)
+            // console.log(playlist.style.marginTop)
         }
         //Khi an vao bat ki dau thi se resize lai playlist
         player.onclick = function() {
             const dashBoardHeight = dashBoard.clientHeight + 6
             playlist.style.marginTop = dashBoardHeight + 'px'
-            // playlist.style.paddingTop = '12px'
+            // console.log(playlist.style.marginTop)
         }
 
         //Xu ly khi bam vao nut play

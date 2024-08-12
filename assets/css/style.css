@@ -24,6 +24,10 @@
     max-width: 480px;
     margin: 0 auto;
   }
+
+  body::-webkit-scrollbar{
+    display: none;
+  }
   
   .player .icon-pause {
     display: none;

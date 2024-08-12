@@ -145,10 +145,10 @@ var app = {
             cd.style.opacity = newCdWidth/cdWidth
 
             //resize playlist
-            const dashBoardHeight = dashBoard.clientHeight + scroll
+            const dashBoardHeight = dashBoard.clientHeight
             playlist.style.marginTop = dashBoardHeight + 'px'
             playlist.style.paddingTop = '12px'
-            // console.log(dashBoard.clientHeight)
+            console.log(dashBoardHeight)
         }
         //Khi an vao bat ki dau thi se resize lai playlist
         document.onclick = function() {

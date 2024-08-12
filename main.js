@@ -420,6 +420,7 @@ var app = {
                 })
                 this.style.border = ''
                 this.classList.add('highlight-song') 
+                cdThumb.style.animation = 'spin 15s linear infinite'
                 _this.currentIndex = index
                 _this.loadCurrentSong()
                 audio.play()

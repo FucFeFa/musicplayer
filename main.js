@@ -110,7 +110,7 @@ var app = {
         },
         {
             name: 'LOVE 2000',
-            singer: 'Valorant',
+            singer: 'Anna Yanami',
             image: './assets/img/1719927757306_640.jpg',
             audio: './assets/music/utomp3.com - LOVE 2000.mp3'
         },
@@ -145,16 +145,16 @@ var app = {
             cd.style.opacity = newCdWidth/cdWidth
 
             //resize playlist
-            const dashBoardHeight = dashBoard.clientHeight
+            var dashBoardHeight = dashBoard.clientHeight + 6
             playlist.style.marginTop = dashBoardHeight + 'px'
-            playlist.style.paddingTop = '12px'
+            playlist.style.padding = '12px'
             console.log(dashBoardHeight)
         }
         //Khi an vao bat ki dau thi se resize lai playlist
-        document.onclick = function() {
-            const dashBoardHeight = dashBoard.clientHeight
+        player.onclick = function() {
+            const dashBoardHeight = dashBoard.clientHeight + 6
             playlist.style.marginTop = dashBoardHeight + 'px'
-            playlist.style.paddingTop = '12px'
+            // playlist.style.paddingTop = '12px'
         }
 
         //Xu ly khi bam vao nut play
@@ -472,11 +472,12 @@ var app = {
         //Dinh nghia cac thuoc tinh cho object
         this.defineProperties()
 
+        //Tai thong tin bai hat hien tai
+        this.loadCurrentSong()
+
         //Xu ly cac su kien DOM
         this.handleEvents()
 
-        //Tai thong tin bai hat hien tai
-        this.loadCurrentSong()
 
         audio.volume = 0.05
     }

@@ -108,6 +108,12 @@ var app = {
             image: './assets/img/ab67616d0000b2732dec0133eb6e5dd2ea17ebbb.jpeg',
             audio: './assets/music/utomp3.com - Ticking Away ft Grabbitz  bbno Official Music Video  VALORANT Champions 2023 Anthem.mp3'
         },
+        {
+            name: 'LOVE 2000',
+            singer: 'Valorant',
+            image: './assets/img/1719927757306_640.jpg',
+            audio: './assets/music/utomp3.com - LOVE 2000.mp3'
+        },
     ],
     
     renderMusic() {   

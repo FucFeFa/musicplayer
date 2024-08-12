@@ -267,3 +267,7 @@
     width: 29%;
     text-align: center;
   }
+
+  .fas:hover {
+    cursor: pointer;
+  }

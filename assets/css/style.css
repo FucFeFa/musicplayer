@@ -268,6 +268,11 @@
     text-align: center;
   }
 
-  .fas:hover {
+  .btn:hover {
     cursor: pointer;
+  }
+
+  .btn-prev:active,
+  .btn-next:active{
+    color: var(--primary-color);
   }

@@ -116,6 +116,12 @@ var app = {
             image: './assets/img/1719927757306_640.jpg',
             audio: './assets/music/utomp3.com - LOVE 2000.mp3'
         },
+        {
+            name: 'Fire Again',
+            singer: 'Valorant',
+            image: './assets/img/0 (2).jpg',
+            audio: './assets/music/utomp3.com - Fire Again ft Ashnikko  Official Music Video  VALORANT Champions 2022.mp3'
+        },
     ],
     
     renderMusic() {   

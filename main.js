@@ -21,6 +21,8 @@ const titles = $$('.title')
 
 const randomBtn = $('.btn-random')
 const playlist = $('.playlist')
+
+const duration = $('.duration')
 // tinh thoi gian bai hat:
 //console.log(Math.floor(audio.duration/60)+':'+ Math.floor((audio.duration-Math.floor(audio.duration))*60))
 
@@ -186,6 +188,14 @@ var app = {
             if(audio.duration) {
                 const progressPercent = Math.floor(audio.currentTime/audio.duration*100)
                 progress.value = progressPercent
+                
+                //Thoi luong bai hat
+                var minutes = Math.floor(audio.duration/60)
+                var seconds = Math.floor((audio.duration / 60 - minutes)*60)
+                var currentMinutes = Math.floor(audio.currentTime/60)
+                var currentSeconds = Math.floor((audio.currentTime / 60 - currentMinutes)*60)
+                console.log(minutes, seconds)
+                duration.textContent = currentMinutes+':'+currentSeconds.toString().padStart(2, '0') + ' / '+minutes + ':' + seconds.toString().padStart(2, '0')
             }
             
         }
@@ -401,6 +411,7 @@ var app = {
                 $('html').style.backgroundColor = '#333'
                 $('body').style.backgroundColor = '#333'
                 $('h2').style.color = 'var(--text-color)'
+                duration.style.color = 'var(--text-color)'
                 dashBoard.style.backgroundColor = 'black'
                 dashBoard.style.border = '1px solid white'
                 $$('.song').forEach(function(song){
@@ -461,7 +472,14 @@ var app = {
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
         audio.src = this.currentSong.audio
-        $('.song').classList.add('highlight-song') 
+        $('.song').classList.add('highlight-song')
+        // duration.textContent = this.currentSong.audio.duration
+       audio.onloadedmetadata = function(){
+         var minutes = Math.floor(audio.duration/60)
+         var seconds = Math.floor((audio.duration / 60 - minutes)*60)
+         console.log(minutes, seconds)
+         duration.textContent = '0:00 / '+minutes + ':' + seconds.toString().padStart(2, '0')       
+       }
     },
 
     

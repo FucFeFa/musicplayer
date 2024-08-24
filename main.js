@@ -122,6 +122,12 @@ var app = {
             image: './assets/img/0 (2).jpg',
             audio: './assets/music/utomp3.com - Fire Again ft Ashnikko  Official Music Video  VALORANT Champions 2022.mp3'
         },
+        {
+            name: 'Watch me',
+            singer: 'Amano Ririsa',
+            image: './assets/img/1900x1900-000000-80-0-0.jpg',
+            audio: './assets/music/y2mate.com - Watch Me.mp3'
+        },
     ],
     
     renderMusic() {   

@@ -128,6 +128,12 @@ var app = {
             image: './assets/img/1900x1900-000000-80-0-0.jpg',
             audio: './assets/music/y2mate.com - Watch Me.mp3'
         },
+        {
+            name: 'Blouse',
+            singer: 'Gohobi',
+            image: './assets/img/143547.jpg',
+            audio: './assets/music/y2mate.com - Giji Harem Opening Full Blouseby Gohobi Lyrics.mp3'
+        },
     ],
     
     renderMusic() {   

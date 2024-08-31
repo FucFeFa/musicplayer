@@ -515,7 +515,7 @@ var app = {
         this.handleEvents()
 
 
-        audio.volume = 0.05
+        // audio.volume = 0.05
     }
 }
 
